@@ -11,6 +11,6 @@ The base is the size of each png per block (default is 16 but some texturepacks 
 In each setup.txt, the first line is the import type (number), second line is export type (number), third line is the base
 An example will be shown in each release which can be found in the github folder "releases"
 
-#Legal Stuff
+# Legal Stuff
 All rights reserved unless explicitly stated.
 People may use the converter for converting without needing to give credit.
