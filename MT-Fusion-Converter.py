@@ -273,6 +273,25 @@ for i in range(len(f)):
             t5.close()
             tf = Comb(ti,base)
             ti.close()
+        elif importtype == 5:
+            ti = Image.new("RGBA",(base*5,base))
+            t1 = Image.open("import/" + index + "/0.png")
+            ti.paste(t1,(0,0))
+            t1.close()
+            t2 = Image.open("import/" + index + "/1.png")
+            ti.paste(t2,(base,0))
+            t2.close()
+            t3 = Image.open("import/" + index + "/2.png")
+            ti.paste(t3,(base*2,0))
+            t3.close()
+            t4 = Image.open("import/" + index + "/3.png")
+            ti.paste(t4,(base*3,0))
+            t4.close()
+            t5 = Image.open("import/" + index + "/4.png")
+            ti.paste(t5,(base*4,0))
+            t5.close()
+            tf = Comb(ti,base)
+            ti.close()
         else:
             print("Importtype " + format(importtype) + " is invalid which is in index " + format(index))
         if exporttype == 1:
@@ -330,6 +349,27 @@ for i in range(len(f)):
             tx5.close()
             txf.save("export/" + index + "/2.png")
             txf.close()
+        elif exporttype == 5:
+            try:
+                os.mkdir("export/" + index)
+            except:
+                print("folder export/" + index + " already exists")
+            tx1 = tf.crop((0,0,base,base))
+            tx1.save("export/" + index + "/0.png")
+            tx1.close()
+            tx2 = tf.crop((base*2,base*2,base*3,base*3))
+            tx2.save("export/" + index + "/1.png")
+            tx2.close()
+            tx3 = tf.crop((0,base*2,base,base*3))
+            tx3.save("export/" + index + "/2.png")
+            tx3.close()
+            tx4 = tf.crop((base*2,0,base*3,base))
+            tx4.save("export/" + index + "/3.png")
+            tx4.close()
+            tx5 = tf.crop((base,base*4,base*2,base*5))
+            tx5.save("export/" + index + "/4.png")
+            tx5.close()
+            tf.close()
         else:
             print("Exporttype " + format(exporttype) + " is invalid which is in index " + format(index))
     except Exception as texception:
