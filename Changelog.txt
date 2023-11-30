@@ -1,3 +1,7 @@
 V0.1:
 Initial Release of MT-Fusion-Converter
 -Allows support for Fusion Full Format & CTM Mod's main format.
+V0.2:
+Added Support for optifine formats:
+-Compact_CTM
+-CTM
