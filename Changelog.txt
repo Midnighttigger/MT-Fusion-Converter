@@ -5,3 +5,10 @@ V0.2:
 Added Support for optifine formats:
 -Compact_CTM
 -CTM
+V0.3:
+Added Support for formats:
+Vertical
+Horizontal
+Horizontal+Vertical
+Vertical+Horizontal
+Added option to define "use default export type" - basically you use export type 0 and it will use the default export type
