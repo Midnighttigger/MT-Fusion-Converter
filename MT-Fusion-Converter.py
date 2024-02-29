@@ -250,12 +250,15 @@ for i in range(len(f)):
         if exporttype == 0:
             exporttype = int(defaultexport[format(importtype)])
         if importtype == 1:
+        #fusionfull
             tf = Image.open("import/" + index + "/1.png")
         elif importtype == 2:
+        #fusioncompact
             ti = Image.open("import/" + index + "/1.png")
             tf = Comb(ti,base)
             ti.close()
         elif importtype == 4:
+        #CTM-Mod
             t1 = Image.open("import/" + index + "/1.png")
             tz = Image.open("import/" + index + "/2.png")
             ti = Image.new("RGBA",(base*5,base))
@@ -277,6 +280,7 @@ for i in range(len(f)):
             tf = Comb(ti,base)
             ti.close()
         elif importtype == 5:
+        #optifinecompact
             ti = Image.new("RGBA",(base*5,base))
             t1 = Image.open("import/" + index + "/0.png")
             ti.paste(t1,(0,0))
@@ -296,6 +300,7 @@ for i in range(len(f)):
             tf = Comb(ti,base)
             ti.close()
         elif importtype == 6:
+        #optifinefull
             tf = Image.new("RGBA",(base*8,base*8))
             t0 = Image.open("import/" + index + "/0.png")
             tf.paste(t0,(0,0))
@@ -620,6 +625,66 @@ for i in range(len(f)):
             tf.paste(t8,(base*2,base*3))
             tf.paste(t8,(base*3,base*3))
             t8.close()
+        elif importtype == 17:
+        #fusioncompactoverlay
+            tf = Image.open("import/" + index + "/1.png")
+        elif importtype == 18:
+        #fusionoverlay
+            ti1 = Image.open("import/" + index + "/2.png")
+            ti2 = Image.open("import/" + index + "/1.png")
+            tf = Image.new("RGBA",(base*3,base*3))
+            t1 = ti2.crop((base*6,base*4,base*7,base*5))
+            tf.paste(t1,(0,0))
+            t1.close()
+            t2 = ti1.crop((base*2,0,base*3,base))
+            tf.paste(t2,(base,0))
+            t2.close()
+            t3 = ti2.crop((base*7,base*4,base*8,base*5))
+            tf.paste(t3,(base*2,0))
+            t3.close()
+            t4 = ti1.crop((base*2,base,base*3,base*2))
+            tf.paste(t4,(0,base))
+            t5 = ti2.crop((base,base*5,base*2,base*6))
+            tf.paste(t5,(base,base))
+            t5.close()
+            t6 = ti1.crop((base*3,0,base*4,base))
+            tf.paste(t6,(base*2,base))
+            t6.close()
+            t7 = ti2.crop((base*6,base*5,base*7,base*6))
+            tf.paste(t7,(0,base*2))
+            t7.close()
+            t8 = ti1.crop((base*2,0,base*3,base))
+            ti1.close()
+            tf.paste(t8,(base,base*2))
+            t8.close()
+            t9 = ti2.crop((base*7,base*5,base*8,base*6))
+            ti2.close()
+            tf.paste(t9,(base*2,base*2))
+            t9.close()
+        elif importtype == 19:
+        #optifineoverlay
+            tf = Image.new("RGBA",(base*3,base*3))
+            t1 = Image.open("import/" + index + "/0.png")
+            tf.paste(t1,(0,0))
+            t1.close()
+            t2 = Image.open("import/" + index + "/1.png")
+            tf.paste(t2,(base,0))
+            t2.close()
+            t3 = Image.open("import/" + index + "/2.png")
+            tf.paste(t3,(base*2,0))
+            t3.close()
+            t4 = Image.open("import/" + index + "/3.png")
+            tf.paste(t4,(0,base))
+            t4.close()
+            try:
+                t5 = Image.open("import/" + index + "/b.png")
+                tf.paste(t5,(base,base))
+                t5.close()
+            except:
+                print("file import/" + index + "/b.png doesnt exist but oh well")
+            t6 = Image.open("import/" + index + "/9.png")
+            tf.paste(t6,(base*2,base))
+            t6.close()
         else:
             print("Importtype " + format(importtype) + " is invalid which is in index " + format(index))
         if exporttype == 1:
