@@ -12,3 +12,5 @@ Horizontal
 Horizontal+Vertical
 Vertical+Horizontal
 Added option to define "use default export type" - basically you use export type 0 and it will use the default export type
+V0.4:
+Overlay Support (Optifine & Fusion)
