@@ -1,4 +1,4 @@
-# MT-Fusion-Converter V0.1
+# MT-Fusion-Converter V0.4
 Converter between multiple ctm formats by Midnighttigger  
 
 # Info
@@ -15,4 +15,4 @@ Orange Groups represents which formats you can convert between aka you can conve
 
 # Legal Stuff
 The license I have there +
-People may use the converter for converting without needing to give credit.  
+People may use the converter for converting without needing to give credit or follow the license I have.  
