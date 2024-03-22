@@ -14,5 +14,5 @@ Default Export type can be defined by setting it as "0" and it will use export t
 Orange Groups represents which formats you can convert between aka you can convert between Optifine CTM_Compact and Fusion Full but not with something like Fusion Horizontal
 
 # Legal Stuff
-All rights reserved unless explicitly stated.  
+The license I have there +
 People may use the converter for converting without needing to give credit.  
