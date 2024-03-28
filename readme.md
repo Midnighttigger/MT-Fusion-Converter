@@ -1,4 +1,4 @@
-# MT-Fusion-Converter V0.4
+# MT-Fusion-Converter V0.1
 Converter between multiple ctm formats by Midnighttigger  
 
 # Info
@@ -14,5 +14,4 @@ Default Export type can be defined by setting it as "0" and it will use export t
 Orange Groups represents which formats you can convert between aka you can convert between Optifine CTM_Compact and Fusion Full but not with something like Fusion Horizontal
 
 # Legal Stuff
-All rights reserved unless explicitly stated.
-You are free to use the converter for converting your own textures without needing to give credit. 
+All rights reserved unless explicitly stated. You are free to use the converter for converting your own textures without needing to give credit.

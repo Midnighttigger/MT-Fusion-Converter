@@ -1,263 +1,92 @@
 import os
+import shutil
+import ast
+import lib.Comb as Comb
 from PIL import Image
-def Comb(ti,base):
-    if (base%2) != 0:
-        1/0
-    dase = int(base/2)
-    f1 = ti.crop((0,0,dase,dase))
-    f2 = ti.crop((dase,0,base,dase))
-    f3 = ti.crop((base,0,dase*3,dase))
-    f4 = ti.crop((dase*3,0,base*2,dase))
-    f5 = ti.crop((base*2,0,dase*5,dase))
-    f6 = ti.crop((dase*5,0,base*3,dase))
-    f7 = ti.crop((base*3,0,dase*7,dase))
-    f8 = ti.crop((dase*7,0,base*4,dase))
-    f9 = ti.crop((base*4,0,dase*9,dase))
-    f10 = ti.crop((dase*9,0,base*5,dase))
-    f11 = ti.crop((0,dase,dase,base))
-    f12 = ti.crop((dase,dase,base,base))
-    f13 = ti.crop((base,dase,dase*3,base))
-    f14 = ti.crop((dase*3,dase,base*2,base))
-    f15 = ti.crop((base*2,dase,dase*5,base))
-    f16 = ti.crop((dase*5,dase,base*3,base))
-    f17 = ti.crop((base*3,dase,dase*7,base))
-    f18 = ti.crop((dase*7,dase,base*4,base))
-    f19 = ti.crop((base*4,dase,dase*9,base))
-    f20 = ti.crop((dase*9,dase,base*5,base))
-    tf = Image.new("RGBA",(base*8,base*8))
-    tf.paste(f1,(0,0))
-    tf.paste(f2,(dase,0))
-    tf.paste(f1,(base,0))
-    tf.paste(f8,(dase*3,0))
-    tf.paste(f7,(base*2,0))
-    tf.paste(f8,(dase*5,0))
-    tf.paste(f7,(base*3,0))
-    tf.paste(f2,(dase*7,0))
-    tf.paste(f1,(base*4,0))
-    tf.paste(f8,(dase*9,0))
-    tf.paste(f7,(base*5,0))
-    tf.paste(f2,(dase*11,0))
-    tf.paste(f5,(base*6,0))
-    tf.paste(f10,(dase*13,0))
-    tf.paste(f7,(base*7,0))
-    tf.paste(f8,(dase*15,0))
-    tf.paste(f11,(0,dase))
-    tf.paste(f12,(dase,dase))
-    tf.paste(f11,(base,dase))
-    tf.paste(f18,(dase*3,dase))
-    tf.paste(f17,(base*2,dase))
-    tf.paste(f18,(dase*5,dase))
-    tf.paste(f17,(base*3,dase))
-    tf.paste(f12,(dase*7,dase))
-    tf.paste(f15,(base*4,dase))
-    tf.paste(f20,(dase*9,dase))
-    tf.paste(f19,(base*5,dase))
-    tf.paste(f16,(dase*11,dase))
-    tf.paste(f15,(base*6,dase))
-    tf.paste(f20,(dase*13,dase))
-    tf.paste(f19,(base*7,dase))
-    tf.paste(f20,(dase*15,dase))
-    tf.paste(f1,(0,base))
-    tf.paste(f2,(dase,base))
-    tf.paste(f1,(base,base))
-    f1.close()
-    tf.paste(f8,(dase*3,base))
-    tf.paste(f7,(base*2,base))
-    tf.paste(f8,(dase*5,base))
-    tf.paste(f7,(base*3,base))
-    tf.paste(f2,(dase*7,base))
-    f2.close()
-    tf.paste(f5,(base*4,base))
-    tf.paste(f10,(dase*9,base))
-    tf.paste(f9,(base*5,base))
-    tf.paste(f6,(dase*11,base))
-    tf.paste(f9,(base*6,base))
-    tf.paste(f10,(dase*13,base))
-    tf.paste(f9,(base*7,base))
-    tf.paste(f6,(dase*15,base))
-    tf.paste(f15,(0,dase*3))
-    tf.paste(f16,(dase,dase*3))
-    tf.paste(f15,(base,dase*3))
-    tf.paste(f14,(dase*3,dase*3))
-    tf.paste(f13,(base*2,dase*3))
-    tf.paste(f14,(dase*5,dase*3))
-    tf.paste(f13,(base*3,dase*3))
-    tf.paste(f16,(dase*7,dase*3))
-    tf.paste(f11,(base*4,dase*3))
-    tf.paste(f18,(dase*9,dase*3))
-    tf.paste(f17,(base*5,dase*3))
-    tf.paste(f12,(dase*11,dase*3))
-    tf.paste(f17,(base*6,dase*3))
-    tf.paste(f18,(dase*13,dase*3))
-    tf.paste(f19,(base*7,dase*3))
-    tf.paste(f16,(dase*15,dase*3))
-    tf.paste(f5,(0,base*2))
-    tf.paste(f6,(dase,base*2))
-    tf.paste(f5,(base,base*2))
-    tf.paste(f4,(dase*3,base*2))
-    tf.paste(f3,(base*2,base*2))
-    tf.paste(f4,(dase*5,base*2))
-    tf.paste(f3,(base*3,base*2))
-    tf.paste(f6,(dase*7,base*2))
-    tf.paste(f5,(base*4,base*2))
-    tf.paste(f4,(dase*9,base*2))
-    tf.paste(f7,(base*5,base*2))
-    tf.paste(f8,(dase*11,base*2))
-    tf.paste(f5,(base*6,base*2))
-    tf.paste(f10,(dase*13,base*2))
-    tf.paste(f7,(base*7,base*2))
-    f7.close()
-    tf.paste(f8,(dase*15,base*2))
-    f8.close()
-    tf.paste(f15,(0,dase*5))
-    tf.paste(f16,(dase,dase*5))
-    tf.paste(f15,(base,dase*5))
-    tf.paste(f14,(dase*3,dase*5))
-    tf.paste(f13,(base*2,dase*5))
-    tf.paste(f14,(dase*5,dase*5))
-    tf.paste(f13,(base*3,dase*5))
-    tf.paste(f16,(dase*7,dase*5))
-    tf.paste(f15,(base*4,dase*5))
-    tf.paste(f20,(dase*9,dase*5))
-    tf.paste(f19,(base*5,dase*5))
-    tf.paste(f14,(dase*11,dase*5))
-    tf.paste(f15,(base*6,dase*5))
-    f15.close()
-    tf.paste(f14,(dase*13,dase*5))
-    tf.paste(f13,(base*7,dase*5))
-    tf.paste(f20,(dase*15,dase*5))
-    tf.paste(f5,(0,base*3))
-    tf.paste(f6,(dase,base*3))
-    tf.paste(f5,(base,base*3))
-    f5.close()
-    tf.paste(f4,(dase*3,base*3))
-    tf.paste(f3,(base*2,base*3))
-    tf.paste(f4,(dase*5,base*3))
-    tf.paste(f3,(base*3,base*3))
-    tf.paste(f6,(dase*7,base*3))
-    tf.paste(f3,(base*4,base*3))
-    tf.paste(f10,(dase*9,base*3))
-    tf.paste(f9,(base*5,base*3))
-    tf.paste(f6,(dase*11,base*3))
-    tf.paste(f9,(base*6,base*3))
-    tf.paste(f4,(dase*13,base*3))
-    tf.paste(f3,(base*7,base*3))
-    tf.paste(f6,(dase*15,base*3))
-    f6.close()
-    tf.paste(f11,(0,dase*7))
-    tf.paste(f12,(dase,dase*7))
-    tf.paste(f11,(base,dase*7))
-    f11.close()
-    tf.paste(f18,(dase*3,dase*7))
-    tf.paste(f17,(base*2,dase*7))
-    tf.paste(f18,(dase*5,dase*7))
-    tf.paste(f17,(base*3,dase*7))
-    tf.paste(f12,(dase*7,dase*7))
-    f12.close()
-    tf.paste(f17,(base*4,dase*7))
-    tf.paste(f18,(dase*9,dase*7))
-    tf.paste(f13,(base*5,dase*7))
-    tf.paste(f16,(dase*11,dase*7))
-    tf.paste(f17,(base*6,dase*7))
-    f17.close()
-    tf.paste(f18,(dase*13,dase*7))
-    f18.close()
-    tf.paste(f19,(base*7,dase*7))
-    tf.paste(f16,(dase*15,dase*7))
-    f16.close()
-    tf.paste(f9,(0,base*4))
-    tf.paste(f4,(dase,base*4))
-    tf.paste(f9,(base,base*4))
-    tf.paste(f10,(dase*3,base*4))
-    tf.paste(f9,(base*2,base*4))
-    tf.paste(f4,(dase*5,base*4))
-    tf.paste(f9,(base*3,base*4))
-    tf.paste(f10,(dase*7,base*4))
-    tf.paste(f9,(base*4,base*4))
-    tf.paste(f10,(dase*9,base*4))
-    tf.paste(f9,(base*5,base*4))
-    tf.paste(f10,(dase*11,base*4))
-    tf.paste(f3,(base*6,base*4))
-    tf.paste(f4,(dase*13,base*4))
-    tf.paste(f3,(base*7,base*4))
-    tf.paste(f4,(dase*15,base*4))
-    tf.paste(f13,(0,dase*9))
-    tf.paste(f20,(dase,dase*9))
-    tf.paste(f19,(base,dase*9))
-    tf.paste(f20,(dase*3,dase*9))
-    tf.paste(f19,(base*2,dase*9))
-    tf.paste(f14,(dase*5,dase*9))
-    tf.paste(f13,(base*3,dase*9))
-    tf.paste(f14,(dase*7,dase*9))
-    tf.paste(f19,(base*4,dase*9))
-    tf.paste(f14,(dase*9,dase*9))
-    tf.paste(f13,(base*5,dase*9))
-    tf.paste(f20,(dase*11,dase*9))
-    tf.paste(f13,(base*6,dase*9))
-    tf.paste(f20,(dase*13,dase*9))
-    tf.paste(f19,(base*7,dase*9))
-    tf.paste(f14,(dase*15,dase*9))
-    tf.paste(f3,(0,base*5))
-    tf.paste(f10,(dase,base*5))
-    tf.paste(f3,(base*2,base*5))
-    tf.paste(f4,(dase*5,base*5))
-    tf.paste(f3,(base*3,base*5))
-    tf.paste(f10,(dase*7,base*5))
-    tf.paste(f9,(base*4,base*5))
-    tf.paste(f4,(dase*9,base*5))
-    tf.paste(f3,(base*5,base*5))
-    tf.paste(f10,(dase*11,base*5))
-    tf.paste(f3,(base*6,base*5))
-    f3.close()
-    tf.paste(f10,(dase*13,base*5))
-    f10.close()
-    tf.paste(f9,(base*7,base*5))
-    f9.close()
-    tf.paste(f4,(dase*15,base*5))
-    f4.close()
-    tf.paste(f19,(0,dase*11))
-    tf.paste(f14,(dase,dase*11))
-    tf.paste(f19,(base*2,dase*11))
-    tf.paste(f20,(dase*5,dase*11))
-    tf.paste(f13,(base*3,dase*11))
-    tf.paste(f20,(dase*7,dase*11))
-    tf.paste(f19,(base*4,dase*11))
-    tf.paste(f20,(dase*9,dase*11))
-    tf.paste(f19,(base*5,dase*11))
-    f19.close()
-    tf.paste(f20,(dase*11,dase*11))
-    f20.close()
-    tf.paste(f13,(base*6,dase*11))
-    tf.paste(f14,(dase*13,dase*11))
-    tf.paste(f13,(base*7,dase*11))
-    f13.close()
-    tf.paste(f14,(dase*15,dase*11))
-    f14.close()
-    return tf
+
+#making main directories
+dr1 = os.listdir()
+if not "import" in dr1:
+    print('made folder: "import"')
+    os.mkdir("import")
+if not "export" in dr1:
+    print('made folder: "export"')
+    os.mkdir("export")
+if not "logs" in dr1:
+    print('made folder: "logs"')
+    os.mkdir("logs")
+if not "config.txt" in dr1:
+    print('made "config.txt" with default settings')
+    config = open("config.txt","w")
+    config.write('"loglength":"3"')
+    config.close()
+#logging
+dr2 = os.listdir("logs/")
 f = os.listdir("import/")
 defaultexport = {"1":"6","2":"1","4":"1","5":"1","6":"1","7":"8","8":"7","9":"10","10":"9","11":"12","12":"11","13":"11","14":"15","15":"14","16":"14","17":"18","18":"17","19":"18"}
 for i in range(len(f)):
     index = f[i]
     try:
         tsetup = open("import/" + index + "/setup.txt","r")
-        importtype = int(tsetup.readline().strip())
-        exporttype = int(tsetup.readline().strip())
-        base = int(tsetup.readline().strip())
+        table = ast.literal_eval("{" + tsetup.read().replace("\n", "") + "}")
         tsetup.close()
-        if base == 0:
-            1/0
-        print(format(importtype) + " " + format(exporttype) + " " + format(base))
-        if exporttype == 0:
-            exporttype = int(defaultexport[format(importtype)])
-        if importtype == 1:
+        if "import" in table:
+            importtype = table["import"]
+        else:
+            importtype = "ignore"
+        if "export" in table:
+            exporttype = table["export"]
+        else:
+            exporttype = "ignore"
+        if "base" in table:
+            base = int(table["base"])
+        else:
+            base = 16
+        if "copylist" in table:
+            copylist = table["copylist"]
+        else:
+            copylist = "ignore"
+        print('operating on "import/' + index + '" with setup ' + format(table))
+        if base:
+            if base == 0:
+                print('how dare you have a zero base in "import/' + index + '", raising division by zero critical error because of it because you shouldnt even have this sized base!!!')
+                1/0
+        if exporttype == "0":
+        #defaultexport
+            exporttype = defaultexport[importtype]
+        if importtype == "1":
         #fusionfull
             tf = Image.open("import/" + index + "/1.png")
-        elif importtype == 2:
+        elif importtype == "2":
         #fusioncompact
             ti = Image.open("import/" + index + "/1.png")
-            tf = Comb(ti,base)
+            tf = Comb.Comb(ti,base)
             ti.close()
-        elif importtype == 4:
+        elif importtype == "3":
+        #fusionsimple
+            ti1 = Image.open("import/" + index + "/1.png")
+            try:
+                ti2 = Image.open("import/" + index + "/2.png")
+            except:
+                ti2 = Image.new("RGBA",(base,base))
+            tf = Comb.Comb.CombAdv(ti1,ti2,base)
+            ti = Image.new("RGBA",(base*5,base))
+            ti1c1 = ti1.crop((0,0,base,base))
+            ti.paste(ti1c1,(0,0))
+            ti1c1.close()
+            ti2.paste(ti1c1,(base,0))
+            ti2.close()
+            ti1c3 = ti1.crop((base,base,base*2,base*2))
+            ti.paste(ti1c3,(base*2,0))
+            ti1c3.close()
+            ti1c4 = ti1.crop((0,base,base,base*2))
+            ti.paste(ti1c4,(base*3,0))
+            ti1c4.close()
+            ti1c5 = ti1.crop((base,0,base*2,base))
+            ti.paste(ti1c5,(base*4,0))
+            ti1c5.close()
+            tf = Comb.Comb(ti,base)
+        elif importtype == "4":
         #CTM-Mod
             t1 = Image.open("import/" + index + "/1.png")
             tz = Image.open("import/" + index + "/2.png")
@@ -277,9 +106,9 @@ for i in range(len(f)):
             tz.close()
             ti.paste(t5,(base*4,0))
             t5.close()
-            tf = Comb(ti,base)
+            tf = Comb.Comb(ti,base)
             ti.close()
-        elif importtype == 5:
+        elif importtype == "5":
         #optifinecompact
             ti = Image.new("RGBA",(base*5,base))
             t1 = Image.open("import/" + index + "/0.png")
@@ -297,9 +126,9 @@ for i in range(len(f)):
             t5 = Image.open("import/" + index + "/4.png")
             ti.paste(t5,(base*4,0))
             t5.close()
-            tf = Comb(ti,base)
+            tf = Comb.Comb(ti,base)
             ti.close()
-        elif importtype == 6:
+        elif importtype == "6":
         #optifinefull
             tf = Image.new("RGBA",(base*8,base*8))
             t0 = Image.open("import/" + index + "/0.png")
@@ -443,46 +272,110 @@ for i in range(len(f)):
             t45 = Image.open("import/" + index + "/45.png")
             tf.paste(t45,(base*7,base*5))
             t45.close()
-        elif importtype == 7:
+        elif importtype == "7":
         #horizontal
-            tf = Image.open("import/" + index + "/1.png")
-        elif importtype == 8:
-        #horizontal
-            tf = Image.new("RGBA",(base*5,base))
+            tfv = Image.open("import/" + index + "/1.png")
+            ti = Image.new("RGBA",(base*5,base))
+            t1 = tfv.crop((0,0,base,base))
+            t2 = tfv.crop((base,0,base*2,base))
+            t3 = tfv.crop((base*2,0,base*3,base))
+            t4 = tfv.crop((base*3,0,base*4,base))
+            tfv.close()
+            ti.paste(t1,(0,0))
+            t1.close()
+            ti.paste(t3,(base*3,0))
+            t3.close()
+            tf = Comb.Comb(ti,base)
+            ti.close()
+            tf.paste(t2,(base,0))
+            t2.close()
+            tf.paste(t4,(base*3,0))
+            t4.close()
+        elif importtype == "8":
+        #optifinehorizontal
+            tfv = Image.new("RGBA",(base*4,base))
             t0 = Image.open("import/" + index + "/3.png")
-            tf.paste(t0,(0,0))
+            tfv.paste(t0,(0,0))
             t0.close()
             t1 = Image.open("import/" + index + "/0.png")
-            tf.paste(t1,(base,0))
+            tfv.paste(t1,(base,0))
             t1.close()
             t2 = Image.open("import/" + index + "/1.png")
-            tf.paste(t2,(base*2,0))
+            tfv.paste(t2,(base*2,0))
             t2.close()
             t3 = Image.open("import/" + index + "/2.png")
-            tf.paste(t3,(base*3,0))
+            tfv.paste(t3,(base*3,0))
             t3.close()
-        elif importtype == 9:
+            ti = Image.new("RGBA",(base*5,base))
+            t1 = tfv.crop((0,0,base,base))
+            t2 = tfv.crop((base,0,base*2,base))
+            t3 = tfv.crop((base*2,0,base*3,base))
+            t4 = tfv.crop((base*3,0,base*4,base))
+            tfv.close()
+            ti.paste(t1,(0,0))
+            t1.close()
+            ti.paste(t3,(base*3,0))
+            t3.close()
+            tf = Comb.Comb(ti,base)
+            ti.close()
+            tf.paste(t2,(base,0))
+            t2.close()
+            tf.paste(t4,(base*3,0))
+            t4.close()
+        elif importtype == "9":
         #vertical
-            tf = Image.open("import/" + index + "1.png")
-        elif importtype == 10:
-        #vertical
-            tf = Image.new("RGBA",(base,base*5))
+            tfv = Image.open("import/" + index + "1.png")
+            ti = Image.new("RGBA",(base*5,base))
+            t1 = tfv.crop((0,0,base,base))
+            t2 = tfv.crop((0,base,base,base*2))
+            t3 = tfv.crop((0,base*2,base,base*3))
+            t4 = tfv.crop((0,base*3,base,base*4))
+            tfv.close()
+            ti.paste(t1,(0,0))
+            t1.close()
+            ti.paste(t3,(base*2,0))
+            t3.close()
+            tf = Comb.Comb(ti,base)
+            ti.close()
+            tf.paste(t2,(0,base))
+            t2.close()
+            tf.paste(t4,(0,base*3))
+            t4.close()
+        elif importtype == "10":
+        #optifinevertical
+            tfv = Image.new("RGBA",(base,base*5))
             t0 = Image.open("import/" + index + "/3.png")
-            tf.paste(t0,(0,0))
+            tfv.paste(t0,(0,0))
             t0.close()
             t1 = Image.open("import/" + index + "/2.png")
-            tf.paste(t1,(0,base))
+            tfv.paste(t1,(0,base))
             t1.close()
             t2 = Image.open("import/" + index + "/1.png")
-            tf.paste(t2,(0,base*2))
+            tfv.paste(t2,(0,base*2))
             t2.close()
             t3 = Image.open("import/" + index + "/0.png")
-            tf.paste(t3,(0,base*3))
+            tfv.paste(t3,(0,base*3))
             t3.close()
-        elif importtype == 11:
+            ti = Image.new("RGBA",(base*5,base))
+            t1 = tfv.crop((0,0,base,base))
+            t2 = tfv.crop((0,base,base,base*2))
+            t3 = tfv.crop((0,base*2,base,base*3))
+            t4 = tfv.crop((0,base*3,base,base*4))
+            tfv.close()
+            ti.paste(t1,(0,0))
+            t1.close()
+            ti.paste(t3,(base*2,0))
+            t3.close()
+            tf = Comb.Comb(ti,base)
+            ti.close()
+            tf.paste(t2,(0,base))
+            t2.close()
+            tf.paste(t4,(0,base*3))
+            t4.close()
+        elif importtype == "11":
         #horizontal+vertical
             tf = Image.open("import/" + index + "/1.png")
-        elif importtype == 12:
+        elif importtype == "12":
         #horizontal+vertical
             th = Image.open("import/" + index + "/h.png")
             tv = Image.open("import/" + index + "/v.png")
@@ -519,7 +412,7 @@ for i in range(len(f)):
             t2.close()
             tf.paste(t4,(base*3,base*3))
             t4.close()
-        elif importtype == 13:
+        elif importtype == "13":
         #horizontal+vertical
             t1 = Image.open("import/" + index + "/3.png")
             t2 = Image.open("import/" + index + "/0.png")
@@ -552,10 +445,10 @@ for i in range(len(f)):
             t2.close()
             tf.paste(t4,(base*3,base*3))
             t4.close()
-        elif importtype == 14:
+        elif importtype == "14":
         #vertical+horizontal
             tf = Image.open("import/" + index + "/1.png")
-        elif importtype == 15:
+        elif importtype == "15":
         #vertical+horizontal
             th = Image.open("import/" + index + "/h.png")
             tv = Image.open("import/" + index + "/v.png")
@@ -592,7 +485,7 @@ for i in range(len(f)):
             tf.paste(t8,(base*2,base*3))
             tf.paste(t8,(base*3,base*3))
             t8.close()
-        elif importtype == 16:
+        elif importtype == "16":
         #vertical+horizontal
             t2 = Image.open("import/" + index + "/4.png")
             t3 = Image.open("import/" + index + "/5.png")
@@ -625,10 +518,10 @@ for i in range(len(f)):
             tf.paste(t8,(base*2,base*3))
             tf.paste(t8,(base*3,base*3))
             t8.close()
-        elif importtype == 17:
+        elif importtype == "17":
         #fusioncompactoverlay
             tf = Image.open("import/" + index + "/1.png")
-        elif importtype == 18:
+        elif importtype == "18":
         #fusionoverlay
             ti = Image.open("import/" + index + "/1.png")
             tf = Image.new("RGBA",(base*5,base*4))
@@ -686,7 +579,7 @@ for i in range(len(f)):
             tf.paste(t18,(base*4,base*3))
             t18.close()
             ti.close()
-        elif importtype == 19:
+        elif importtype == "19":
         #optifineoverlay
             tf = Image.new("RGBA",(base*5,base*4))
             t1 = Image.open("import/" + index + "/0.png")
@@ -738,29 +631,34 @@ for i in range(len(f)):
                 t16 = Image.open("import/" + index + "/b.png")
                 tf.paste(t16,(0,base*3))
                 t16.close()
+                print("using b.png in " + '"import/' + index + '"')
             except:
-                print("file import/" + index + "/b.png doesnt exist but oh well")
+                print("not using b.png in " + '"import/' + index + '" because it doesnt exist')
             t17 = Image.open("import/" + index + "/13.png")
             tf.paste(t17,(base*3,base*3))
             t17.close()
             t18 = Image.open("import/" + index + "/6.png")
             tf.paste(t18,(base*4,base*3))
             t18.close()
+        elif importtype == "ignore":
+            1+1
         else:
-            print("Importtype " + format(importtype) + " is invalid which is in index " + format(index))
-        if exporttype == 1:
+            print("Importtype " + importtype + " is invalid which is in " + '"import/' + index + '"')
+        if exporttype == "1":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index + " already exists")
+                1+1
             #fusionfull
             tf.save("export/" + index + "/1.png")
             tf.close()
-        elif exporttype == 2:
+        elif exporttype == "2":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index + " already exists")
+                1+1
             #fusioncompact
             txf = Image.new("RGBA",(base*5,base))
             tx1 = tf.crop((0,0,base,base))
@@ -781,11 +679,12 @@ for i in range(len(f)):
             tx5.close()
             txf.save("export/" + index + "/1.png")
             txf.close()
-        elif exporttype == 4:
+        elif exporttype == "4":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index + " already exists")
+                1+1
             #CTM-Mod
             tx1 = tf.crop((0,0,base,base))
             tx1.save("export/" + index + "/1.png")
@@ -806,11 +705,12 @@ for i in range(len(f)):
             tx5.close()
             txf.save("export/" + index + "/2.png")
             txf.close()
-        elif exporttype == 5:
+        elif exporttype == "5":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index + " already exists")
+                1+1
             #optifinecompact
             tx1 = tf.crop((0,0,base,base))
             tx1.save("export/" + index + "/0.png")
@@ -828,11 +728,12 @@ for i in range(len(f)):
             tx5.save("export/" + index + "/4.png")
             tx5.close()
             tf.close()
-        elif exporttype == 6:
+        elif exporttype == "6":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index + " already exists")
+                1+1
             #optifinefull
             tx0 = tf.crop((0,0,base,base))
             tx0.save("export/" + index + "/0.png")
@@ -975,19 +876,21 @@ for i in range(len(f)):
             tx46 = tf.crop((base*7,base*5,base*8,base*6))
             tx46.save("export/" + index + "/45.png")
             tx46.close()
-        elif exporttype == 7:
+        elif exporttype == "7":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index + " already exists")
+                1+1
             #horizontal
             tf.save("export/" + index + "/1.png")
             tf.close()
-        elif exporttype == 8:
+        elif exporttype == "8":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #horizontal
             t0 = tf.crop((0,0,base,base))
             t0.save("export/" + index + "/3.png")
@@ -1002,19 +905,21 @@ for i in range(len(f)):
             tf.close()
             t3.save("export/" + index + "/2.png")
             t3.close()
-        elif exporttype == 9:
+        elif exporttype == "9":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #vertical
             tf.save("export/" + index + "/1.png")
             tf.close()
-        elif exporttype == 10:
+        elif exporttype == "10":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #vertical
             t0 = tf.crop((0,0,base,base))
             t0.save("export/" + index + "/3.png")
@@ -1029,19 +934,21 @@ for i in range(len(f)):
             tf.close()
             t3.save("export/" + index + "/0.png")
             t3.close()
-        elif exporttype == 11:
+        elif exporttype == "11":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #horizontal+vertical
             tf.save("export/" + index + "/1.png")
             tf.close()
-        elif exporttype == 12 or exporttype == 15:
+        elif exporttype == "12" or exporttype == "15":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #horizontal+vertical and vertical+horizontal
             ht = Image.new("RGBA",(base*4,base))
             h1 = tf.crop((0,0,base,base))
@@ -1074,11 +981,12 @@ for i in range(len(f)):
             v4.close()
             vt.save("export/" + index + "/v.png")
             vt.close()
-        elif exporttype == 13:
+        elif exporttype == "13":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #horizontal+vertical
             t1 = tf.crop((0,0,base,base))
             t1.save("export/" + index + "/3.png")
@@ -1102,19 +1010,21 @@ for i in range(len(f)):
             tf.close()
             t8.save("export/" + index + "/4.png")
             t8.close()
-        elif exporttype == 14:
+        elif exporttype == "14":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #vertical+horizontal
             tf.save("export/" + index + "/1.png")
             tf.close()
-        elif exporttype == 16:
+        elif exporttype == "16":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #vertical+horizontal
             t2 = tf.crop((base*2,base,base*3,base*2))
             t2.save("export/" + index + "/4.png")
@@ -1138,19 +1048,21 @@ for i in range(len(f)):
             tf.close()
             t8.save("export/" + index + "/0.png")
             t8.close()
-        elif exporttype == 17:
+        elif exporttype == "17":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #fusioncompactoverlay
             tf.save("export/" + index + "/1.png")
             tf.close()
-        elif exporttype == 18:
+        elif exporttype == "18":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #fusionoverlay
             t1 = tf.crop((0,0,base,base))
             t2 = tf.crop((base,0,base*2,base))
@@ -1297,11 +1209,12 @@ for i in range(len(f)):
             t13.close()
             tx.save("export/" + index + "/1.png")
             tx.close()
-        elif exporttype == 19:
+        elif exporttype == "19":
             try:
                 os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
             except:
-                print("folder export/" + index +" already exists")
+                1+1
             #optifineoverlay
             t1 = tf.crop((0,0,base,base))
             t1.save("export/" + index + "/0.png")
@@ -1358,7 +1271,22 @@ for i in range(len(f)):
             t18.save("export/" + index + "/6.png")
             t18.close()
             tf.close()
+        elif not copylist == "ignore":
+            try:
+                os.mkdir("export/" + index)
+                print("made folder " + '"export/' + index + '"')
+            except:
+                1+1
+            #bulkcopypaste
+            o = os.listdir("import/" + index)
+            for files in o:
+                if not files == "setup.txt":
+                    printlist = []
+                    for copylistname in copylist:
+                        printlist.append(format(copylistname + files))
+                        shutil.copy2(format("import/" + index + "/" + files),format("export/" + index + "/" + copylistname + files),follow_symlinks=True)
+                    print(format('copying "import/' + index + files + '" -> "export/' + index + '/": ' + format(printlist)))
         else:
-            print("Exporttype " + format(exporttype) + " is invalid which is in index " + format(index))
+            print("Exporttype " + exporttype + " is invalid which is in " + '"import/' + index + '"')
     except Exception as texception:
         print(texception)
