@@ -1,5 +1,5 @@
 from PIL import Image
-def Comb(ti,base):
+def Gen(ti,base):
     dase = int(base/2)
     f1 = ti.crop((0,0,dase,dase))
     f2 = ti.crop((dase,0,base,dase))
@@ -231,7 +231,7 @@ def Comb(ti,base):
     tf.paste(f14,(dase*15,dase*11))
     f14.close()
     return tf
-def CombAdv(ti,ti2,base):
+def GenAdv(ti,ti2,base):
     dase = int(base/2)
     f1 = ti.crop((0,0,base,base))
     f2 = ti.crop((base,0,base*2,base))
@@ -480,7 +480,7 @@ def Loc(t0,base,loc)
     tf = t0.crop((locx*base,locy*base,locx*base+base,locy*base+base))
     t0.close()
     return tf
-def Convert(t0,base,CovList,exitx,exity)
+def Arrange(t0,base,CovList,exitx,exity)
     loclist = {"0":(0,0),"1":(1,0),"2":(2,0),"3":(3,0),"4":(4,0),"5":(5,0),"6":(6,0),"7":(7,0),"8":(0,1),"9":(1,1),"10":(2,1),"11":(3,1),"12":(4,1),"13":(5,1),"14":(6,1),"15":(7,1),"16":(0,2),"17":(1,2),"18":(2,2),"19":(3,2),"20":(4,2),"21":(5,2),"22":(6,2),"23":(7,2),"24":(0,3),"25":(1,3),"26":(2,3),"27":(3,3),"28":(4,3),"29":(5,3),"30":(6,3),"31":(7,3),"32":(0,4),"33":(1,4),"34":(2,4),"35":(3,4),"36":(4,4),"37":(5,4),"38":(6,4),"39":(7,4),"40":(0,5),"41":(2,5),"42":(3,5),"43":(4,5),"44":(5,5),"45":(6,5),"46":(7,5)}
     tf = Image.new("RGBA",(base*exitx,base*exity))
     for Loc in Covlist:

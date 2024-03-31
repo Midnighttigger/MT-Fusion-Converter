@@ -2,8 +2,9 @@ import os
 import shutil
 import ast
 import lib.Comb as Comb
+import lib.Import as Import
+import lib.Export as Export
 from PIL import Image
-
 #making main directories
 dr1 = os.listdir()
 if not "import" in dr1:
